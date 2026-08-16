@@ -34,7 +34,7 @@ export const Navbar = () => {
               boxShadow: `0 0 8px ${serverOnline ? 'var(--success)' : 'var(--danger)'}`,
             }}
           />
-          <span>{serverOnline ? 'API Online :5000' : 'API Connecting...'}</span>
+          <span>{serverOnline ? 'API Connected' : 'API Connecting...'}</span>
         </div>
 
         {user && (

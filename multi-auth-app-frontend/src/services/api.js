@@ -1,4 +1,5 @@
-const API_BASE = '/api';
+const rawApiUrl = import.meta.env.VITE_API_URL || '';
+const API_BASE = (rawApiUrl ? rawApiUrl.replace(/\/+$/, '') : '') + '/api';
 
 /**
  * Custom fetch wrapper with JSON handling and token support
