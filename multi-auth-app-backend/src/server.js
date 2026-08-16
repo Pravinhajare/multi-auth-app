@@ -8,8 +8,12 @@ import jwtAuthRoutes from './routes/jwtAuthRoutes.js';
 // Load environment variables
 dotenv.config();
 
+console.log("server.js", process.env.CLIENT_URL);
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+console.log("port", PORT);
 
 // Connect to MongoDB
 connectDB();
