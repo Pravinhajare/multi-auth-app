@@ -5,15 +5,18 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import jwtAuthRoutes from './routes/jwtAuthRoutes.js';
 
-// Load environment variables
-dotenv.config();
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-console.log("server.js", process.env.CLIENT_URL);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load environment variables from backend root directory
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config(); // fallback to current working directory if different
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-console.log("port", PORT);
 
 // Connect to MongoDB
 connectDB();
